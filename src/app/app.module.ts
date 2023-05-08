@@ -17,6 +17,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
 
+import { Flashlight } from '@awesome-cordova-plugins/flashlight/ngx'
+import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,7 +34,12 @@ import { environment } from 'src/environments/environment';
     AngularFireStorageModule,
     AngularFireAuthModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    Flashlight,
+    Vibration,
+    DeviceMotion,
+    ScreenOrientation,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -10,7 +10,7 @@
     <ion-card class="ion-no-margin">
 
       <div class="d-flex justify-content-center mt-5 text-center">
-        <ion-img src="../../../assets/icon.png"></ion-img>
+        <ion-img src="../../../assets/iconlogin.png"></ion-img>
 
       </div>
 
@@ -58,24 +58,17 @@
               </div>
             </div>
           </form>
-          <!-- <div class="password-forgot">
-          <ion-button fill="clear" class="ion-no-padding" routerLink="/register">No tenes
-            cuenta?<strong>Registrate</strong></ion-button>
-          </div> -->
+          
         </div>
         <div class="signin-btns">
-          <ion-button (click)="onLogin()" fill="solid" shape="round" class="loginbtn">Login</ion-button>
+          <ion-button (click)="onLogin()" fill="solid" shape="round" class="loginbtn">Ingresar</ion-button>
         </div>
 
         <div class="errors text-center">
           <p *ngIf="error === true">{{message}}</p>
         </div>
 
-
         <hr class="mt-5">
-
-
-
 
       </ion-card-content>
     </ion-card>

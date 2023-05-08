@@ -1,27 +1,73 @@
-#container {
-  text-align: center;
+  ion-content {
+    --background: rgb(106, 4, 15);
+    --background: linear-gradient(126deg, rgba(106, 4, 15, 1) 8%, rgba(244, 140, 6, 1) 84%);
+    height: 100%;
+    width: 100%;
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  ion-fab-button {
+    --background: #060b2c;
+    --background-activated: #01030e;
+    --background-hover: #080d29;
+    --border-radius: 20px;
+  }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+  ion-grid {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+    ion-row {
+      flex-grow: 1;
+    }
+  }
 
-  color: #8c8c8c;
+  .btnActive {
+    height: 100%;
+    width: 98%;
+    border: 4px solid #000000;
+    border-radius: 20px;
+    --border-radius: 20px;
+    --background: rgb(255, 186, 8);
+    --background: linear-gradient(126deg, rgba(255, 186, 8, 1) 8%, rgba(208, 0, 0, 1) 71%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 8px rgb(221, 32, 32);
+  }
 
-  margin: 0;
-}
+  .btnActive:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 16px rgb(252, 193, 1);
+    transition: transform 0.3s;
+  }
 
-#container a {
-  text-decoration: none;
-}
+  .desactivar {
+    height: 100%;
+    width: 98%;
+    border: 4px solid #000000;
+    border-radius: 20px;
+    background: rgb(255, 186, 8);
+    background: linear-gradient(126deg, rgba(255, 186, 8, 1) 8%, rgba(208, 0, 0, 1) 71%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 8px rgb(221, 32, 32);
+  }
+  img {
+    max-width: 80%;
+  }
+
+  span {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 4px 4px 2px #000000;
+
+  }
+
+  ion-button {
+    height: 50px;
+  }

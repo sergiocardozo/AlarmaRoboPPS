@@ -45,17 +45,20 @@ ion-item {
     text-align: center;
     color: #FFBA08;
     .ingresoRapido {
-        color: #03071E;
+        color: white;
         --ion-color-primary: #370617;
       
+    }
+    p {
+        color: #370617;
     }
 }
 .loginbtn {
     --ion-color-primary: #370617;
 }
 hr {
-    height: 3px;
-    background-color: #FFBA08;
+    height: 6px;
+    background-color: #370617;
   }
   
 
@@ -69,15 +72,4 @@ hr {
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
-.password-forgot {
-    text-align: right;
-    ion-button {
-        font-size: 12px;
-        text-transform: initial;
-        color: white;
 
-        strong {
-            color: #370617;
-        }
-    }
-}
