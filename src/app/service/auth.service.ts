@@ -3,34 +3,40 @@ import { Router } from '@angular/router';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import * as auth from 'firebase/auth';
+import * as firebase from 'firebase/compat/app';
 
 import { User } from '../shared/user.interface';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public userData;
+  user$: Observable<User>;
+  public userData: User;
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, private ngZone: NgZone) {
-    this.afAuth.authState.subscribe((user) => {
-
-      if(user){
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
-
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'))
-      }
-    })  
+  constructor(private afAuth: AngularFireAuth, 
+              private afs: AngularFirestore, 
+              private router: Router, 
+              private ngZone: NgZone) {
+    
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if(user) {
+          return afs.doc<User>(`user/${user.uid}`).valueChanges()
+        } else {
+          return of(null)
+        }
+      })
+    )
   }
 
-  signIn(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+  async signIn(email, password) {
+    this.afAuth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL).then(() => {
+      return this.afAuth.signInWithEmailAndPassword(email, password);
+
+    })
   }
 
   registerUser(email, password) {
@@ -65,11 +71,11 @@ export class AuthService {
     return user.emailVerified !== false ? true : false;
   }
 
-  googleAuth() {
+  /* googleAuth() {
     return this.authLoggin(new auth.GoogleAuthProvider());
-  }
+  } */
 
-  authLoggin(provider:any) {
+  /* authLoggin(provider:any) {
     return this.afAuth.signInWithPopup(provider).then((response:any) => {
       this.ngZone.run(() => {
         this.router.navigate(['home']);
@@ -78,9 +84,9 @@ export class AuthService {
     }).catch((error:any) => {
       console.log('Error auth: ', error);
     })
-  }
+  } */
 
-  setUserData(user:any) {
+  /* setUserData(user:any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const userData: User = {
@@ -93,7 +99,7 @@ export class AuthService {
 
     return userRef.set(userData, { merge: true });
 
-  }
+  } */
 
   signOut() {
     return this.afAuth.signOut().then(() => {

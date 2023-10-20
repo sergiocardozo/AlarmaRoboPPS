@@ -1,27 +1,186 @@
-#container {
+ion-content {
+  --background: #0D5D56;
+  overflow: hidden;
+  position: relative;
+
+  .cosas-lindas-btn {
+    background: url("../../assets/img/cosasLindas.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    border: 3px solid rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 10px;
+    height: 40vh;
+    h2 {
+      font-size: 3rem;
+      font-weight: bolder;
+      line-height: 2rem;
+      border-radius: 15px;
+      text-shadow: 2px 2px 4px #000;
+      color: #0d5d56;
+
+    }
+  }
+  .cosas-lindas-btn:active {
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .cosas-feas-btn {
+    background: url("../../assets/img/cosasFeas.webp");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    border: 3px solid rgb(255, 255, 255);
+    text-align: center;
+    height: 40vh;
+    
+    h2 {
+      font-size: 3rem;
+      font-weight: bolder;
+      line-height: 2rem;
+      border-radius: 15px;
+      text-shadow: 2px 2px 4px #000;
+      color: #0d5d56;
+    }
+  }
+  .cosas-feas-btn:active {
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .btn-danger {
+    width: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    box-shadow: 2px 2px 3px #000;
+  }
+  .btn-danger:active {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+  }
+}
+ion-card {
+  --background: #e5c2c0;
+}
+ion-card-header {
+  --background: #e5c2c0;
+}
+ion-card-content {
+  --background: #8fd5a6;
+}
+// MENU COSAS LINDAS Y FEAS
+.btns-cosas-lindas {
+  width: 45%;
+  color: #fff;
   text-align: center;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+.btns-cosas-lindas:active {
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+.btn-menu-cl {
+  background: black;
+}
+.btn-sesion-cl {
+  background: rgb(168, 28, 28);
+}
 
+.mis-fotos,
+.grafico {
+  
+  width: 90%;
+  color: #0d5d56;
+  font-weight: bold;
+  text-align: center;
+  background: #e5c2c0;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.mis-fotos:active,
+.grafico:active {
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+.grafico {
+  /* width: 13rem; */
+  background: #8fd5a6;
+  color: #0d5d56;
+}
+h1 {
+  color: #8FD5A6;
+  text-shadow: 2px 2px 4px #000;
+}
+.btn-tomar-foto {
+ 
+  width: 77%;
+  height: 18rem;
+  background: url("../../assets/img/camara2.png");
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid #8FD5A6;
+  text-align: center;
+  background-color: #E5C2C0;
+  h2 {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    line-height: 28rem;
+    color: #00ff7c;
+    border-radius: 15px;
+    text-shadow: 3px 3px 1px #000;
+  }
+}
+.btn-tomar-foto:active {
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}
+
+// LISTADO COSAS LINDAS y FEAS
+.img-cosas-lindas {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.btn-like-dislike-cl {
+  --background: #E5C2C0;
+  ion-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 40%;
+  }
+}
+
+.like-activado {
+  color: rgb(1, 143, 1);
+}
+.like-desactivado {
+  color:rgb(168, 28, 28);
+}
+
+// PIPE Y BAR CHART
+
+.pipe-chart-container,
+.bar-chart-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 50vh!important;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+ion-spinner {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  height: 15rem;
 }
